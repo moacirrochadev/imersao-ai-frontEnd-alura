@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #141414;
+    --text-color: #ffffff;
+    --muted-text: #808080;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --card-hover-shadow: 0 8px 40px rgba(236, 233, 233, 0.4);
+    --button-border: #808080;
+    --button-text: #808080;
+    --button-hover-border: #ffffff;
+    --button-hover-text: #ffffff;
+    --focus-color: #ece6e7;
+}
+
+body.light-mode {
+    --bg-color: #f5f5f5;
+    --text-color: #1a1a1a;
+    --muted-text: #4a4a4a;
+    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    --card-hover-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    --button-border: #4a4a4a;
+    --button-text: #4a4a4a;
+    --button-hover-border: #1a1a1a;
+    --button-hover-text: #1a1a1a;
+    --focus-color: #111111;
+}
+
+/* Reset e Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--button-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--button-text);
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--button-hover-text);
+    border-color: var(--button-hover-border);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+/* Main Container */
+main {
+    width: 100%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: -2px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profiles Section */
+.profiles {
+    padding: 20px 0;
+}
+
+.manage-profiles-btn {
+    display: block;
+    margin: 56px auto 0;
+    min-width: 220px;
+    padding: 12px 28px;
+    border: 1px solid var(--button-border);
+    background: transparent;
+    color: var(--button-text);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.manage-profiles-btn:hover {
+    color: var(--button-hover-text);
+    border-color: var(--button-hover-border);
+    transform: translateY(-1px);
+}
+
+.manage-profiles-btn:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+.profiles ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+
+}
+
+/* Profile Cards */
+.profile {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.profile figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile img {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+
+.profile:hover img {
+    box-shadow: var(--card-hover-shadow);
+    border-radius: 12px;
+}
+
+.profile figcaption {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--muted-text);
+    transition: color 0.3s ease;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.profile:hover figcaption {
+    color: var(--text-color);
+}
+
+/* Add Profile Button */
+.add-profile img {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.add-profile:hover img {
+    background-color: rgba(229, 9, 20, 0.1);
+    box-shadow: 0 8px 40px rgba(235, 231, 231, 0.3);
+}
+
+.add-profile:hover figcaption {
+    color: rgba(235, 231, 231, 0.3);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .profiles ul {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 30px;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile figcaption {
+        font-size: 1rem;
+    }
+
+    .manage-profiles-btn {
+        margin-top: 40px;
+        min-width: 200px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .profiles ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile figcaption {
+        font-size: 0.9rem;
+    }
+
+    .manage-profiles-btn {
+        margin-top: 32px;
+        min-width: 180px;
+        padding: 10px 20px;
+        letter-spacing: 1px;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Acessibilidade */
+.profile:focus-visible {
+    outline: 2px solid #e50914;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
